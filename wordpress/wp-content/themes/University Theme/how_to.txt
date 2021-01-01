@@ -1,0 +1,61 @@
+
+  __________Defining PHP & WordPress built in Functions_________
+
+  <h1><?php bloginfo('name'); ?></h1>
+  <p><?php bloginfo('description'); ?><p>
+
+  _____________Defining__Variables___________
+  Defining functions with 
+  1. call the name: $names = 'jim';
+  2. print the name
+  <p> This is the <?php echo $names; ?> first exam</p>
+
+
+  _____________Defining__Arrays___________
+  function greet($name, $age) { echo ' hi $name' } 
+
+  We can call greet($name){} to replace the ___ with a name
+
+    1. We call/use the function with wordpressprinter();
+
+    function wordpressprinter() {
+        echo ' This is the "wordpress function" ';
+    }
+
+
+  _______Defining While Loops_______
+  1.  Name the loop 
+  $names = array( 'Jas', 'Boris', 'Harly', 'Liam', 'Moses');
+
+    2. call the name of the count .. $count = 0;
+
+    3.  run the while loop 
+          while($count < count($names)) {
+          echo "<li> reb the engine $names[$count]</li>";
+          $count++;
+        }
+
+  
+
+
+
+__________Changing the Screenshot.png________________
+
+ 
+1. To change the screenshot.png first make sure you have a png file then adjust the size to 1200px wide and 900px long
+2. place the screenshot.png in the root of the theme folder 
+
+_____________Change URL_____________________
+      
+
+To change the header of your Wordpress url name go to settings .. General Settings then change 
+ the WordPress Address (URL) & Site Address (URL) to the desired Url name ( refresh the current url )
+
+Change the directory folder name in C:\wamp64\www\
+
+
+_______Built in Wordpress & PHP functions___________
+
+- bloginfo('name');  -> Site Title
+- bloginfo('description') -> Tagline
+
