@@ -59,3 +59,4 @@ _______Built in Wordpress & PHP functions___________
 - bloginfo('name');  -> Site Title
 - bloginfo('description') -> Tagline
 
+----
