@@ -4,6 +4,48 @@
   <h1><?php bloginfo('name'); ?></h1>
   <p><?php bloginfo('description'); ?><p>
 
+      __________Defining Header & Footer Regions___________
+
+              --- Header ---
+      1. To create a header create the File: header.php
+    2. use: <?php get_header(); ?>
+    NOTE the get_header function pulls in the content of header.php
+
+              -- Footer --
+      1. To create a footer create the File: footer.php
+    2. use: <?php get_footer(); ?>
+    NOTE the get_footer function pulls in the content of footer.php            
+
+      ____________Adding Functions_________ 
+      
+         ------- Adding CSS -----
+      1. call the style
+      2. wp_enqueue_style('', ''),
+      3. call the name of the style or script wp_enqueue_style('university_main_styles', 'get_stylesheet_uri()')
+      4. define the style or script 
+          <? php
+                function university_files() {  
+                  wp_enqueue_style('university_main_styles', get_stylesheet_uri()) }
+                    add_action('wp_enqueue_scripts', 'university_files');
+          ?>
+      
+      - get_stylesheet_uri() adds the CSS with a built in wordpress function
+
+
+      ------- Adding Javascript -----
+      1. call the style
+      2. wp_enqueue_style('', ''),
+      3. call the name of the style or script wp_enqueue_scripts('main-university-js', get_theme_file_uri('js/scripts-bundled.js'), NULL, '1.0', true))
+      4. define the style or script 
+
+              <? php
+                    function university_files() {  
+                      wp_enqueue_script('main-university-js', get_theme_file_uri('js/scripts-bundled.js'), NULL, '1.0', true);
+                       add_action('wp_enqueue_scripts', 'university_files');
+                ?>
+
+
+
   _____________Defining__Variables___________
   Defining functions with 
   1. call the name: $names = 'jim';
@@ -27,7 +69,7 @@
   1.  Name the loop 
   $names = array( 'Jas', 'Boris', 'Harly', 'Liam', 'Moses');
 
-    2. call the name of the count .. $count = 0;
+    2. call the name of the function: $count = 0;
 
     3.  run the while loop 
           while($count < count($names)) {
