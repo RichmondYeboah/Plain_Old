@@ -4,6 +4,7 @@
   <h1><?php bloginfo('name'); ?></h1>
   <p><?php bloginfo('description'); ?><p>
 
+
       __________Defining Header & Footer Regions___________
 
               --- Header ---
@@ -14,7 +15,24 @@
               -- Footer --
       1. To create a footer create the File: footer.php
     2. use: <?php get_footer(); ?>
-    NOTE the get_footer function pulls in the content of footer.php            
+    NOTE the get_footer function pulls in the content of footer.php   
+
+
+              -- Title's --
+      1. To create a title function where you can display a variety of title's 
+    2. use: <php the_title(); ?>    
+
+        -- To get iD of the Page -- 
+      1. Notice the ID at the top of the page when editing
+    2. Post   <?php echo get_the_ID(); ?>
+
+        -- Get Post by ID -- 
+        <?php echo wp_get_post_parent_id(get_the_ID()); ?>
+         - By this function if the page has a parent page it will return the id of that parent page
+        - the function will return an ID of: 0 if the page doesn't have a parent page
+
+    -- Getting the ID of a Page's Parent 
+      
 
       ____________Adding Functions_________ 
       
@@ -38,11 +56,11 @@
       3. call the name of the style or script wp_enqueue_scripts('main-university-js', get_theme_file_uri('js/scripts-bundled.js'), NULL, '1.0', true))
       4. define the style or script 
 
-              <? php
-                    function university_files() {  
-                      wp_enqueue_script('main-university-js', get_theme_file_uri('js/scripts-bundled.js'), NULL, '1.0', true);
-                       add_action('wp_enqueue_scripts', 'university_files');
-                ?>
+        <? php
+              function university_files() {  
+                wp_enqueue_script('main-university-js', get_theme_file_uri('js/scripts-bundled.js'), NULL, '1.0', true);
+                add_action('wp_enqueue_scripts', 'university_files');
+          ?>
 
 
 
@@ -86,6 +104,7 @@ _________Adding Permalinks to Wordpress_________
         <hr>
         <?php 
     }
+
     NOTE: A Loop does something once for each item in a collection
     
   - the_permalink : function allows you to make links connecting to indivdual pages
