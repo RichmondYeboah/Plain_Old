@@ -135,7 +135,7 @@ _________Adding Permalinks to Wordpress_________
     NOTE: A Loop does something once for each item in a collection
     
   - the_permalink : function allows you to make links connecting to indivdual pages
-  NOTE: Our homepage is uses index.php but if we click on one of the single post
+     NOTE: Our homepage is uses index.php but if we click on one of the single post
         Wordpress will look in the theme folder for a file specifically named single.php.
         If that file doesn't exist wordpress will use index.php as a universal default fallback.
         ~ Pages are powered by index.php not single.php(Wordpress only uses the single.php file for individual post.
@@ -152,7 +152,7 @@ _____________Change URL_____________________
       
 
 To change the header of your Wordpress url name go to settings .. General Settings then change 
- the WordPress Address (URL) & Site Address (URL) to the desired Url name ( refresh the current url )
+the WordPress Address (URL) & Site Address (URL) to the desired Url name ( refresh the current url )
 
 Change the directory folder name in C:\wamp64\www\
 
