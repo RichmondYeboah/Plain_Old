@@ -4,8 +4,29 @@
   <h1><?php bloginfo('name'); ?></h1>
   <p><?php bloginfo('description'); ?><p>
 
+      more functions: 
+                      the_title();
+                      get_the_title();
+                      the_ID();
+                      get_the_id();
 
-      __________Defining Header & Footer Regions___________
+          -- Outputting content for Menus -- 
+      
+      wp_list_pages -  handles outputting the function onto the screen 
+      whilst get_pages(); - returns the pages in memory 
+
+      <?php
+         wp_list_pages(array(
+            'title_li' => NULL, 
+            'child_of' => $findChildrenOf,
+            'sort_column' => 'menu_order'
+              ));  ?> 
+
+              note: In the page attribute under the edit page 
+              section is where you can order the menus from least to
+              greatest as a condition depending on the order number.
+
+        ___Defining Header & Footer Regions___
 
               --- Header ---
       1. To create a header create the File: header.php
@@ -21,6 +42,11 @@
               -- Title's --
       1. To create a title function where you can display a variety of title's 
     2. use: <php the_title(); ?>    
+    - the_title will output the title of the current post or page
+    - get_the_title allows you to pass in an ID into the parenthesis and it will give you the title
+     for that post instead of the current post you just looped through.
+        -- Calling A Dynamic Parent page -- 
+            <?php get_the_title(); ?>  
 
         -- To get iD of the Page -- 
       1. Notice the ID at the top of the page when editing
@@ -30,6 +56,7 @@
         <?php echo wp_get_post_parent_id(get_the_ID()); ?>
          - By this function if the page has a parent page it will return the id of that parent page
         - the function will return an ID of: 0 if the page doesn't have a parent page
+
 
     -- Getting the ID of a Page's Parent 
       

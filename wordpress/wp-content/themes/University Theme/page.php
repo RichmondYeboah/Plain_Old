@@ -14,19 +14,51 @@
     </div>  
   </div>
   <div class="container container--narrow page-section">
-  <?php echo get_the_ID(); ?>
+  
+  <!-- php (wp_get_post_parent_id(get_the_ID())) function calls the parent and child pages -->
+  <?php 
+    $theParent = wp_get_post_parent_id(get_the_ID());
+    if ($theParent) {?>
     <div class="metabox metabox--position-up metabox--with-home-link">
-      <p><a class="metabox__blog-home-link" href="#"><i class="fa fa-home" aria-hidden="true"></i> Back to About Us</a> <span class="metabox__main"><?php the_title(); ?></span></p>
+      <p><a class="metabox__blog-home-link" href="<?php echo get_permalink($theParent); ?> "><i class="fa fa-home" 
+      aria-hidden="true"></i> Back to  <?php echo get_the_title($theParent); ?> </a> <span class="metabox__main">
+      <?php the_title(); ?></span></p>
     </div>
+    <?php } 
+    // The variable     $theParent = wp_get_post_parent_id(get_the_ID());
+      // Reverts the child page or post back to it's parent 
     
+      ?>
+
+    <?php
+    $testArray = get_pages(array(
+      'child_of' => get_the_ID()
+    ));
+    // the cheat code -  to see if the page has a parent if it does not have children it will return null or false or 0
+
+    if ($theParent or $testArray) { ?>
     <div class="page-links">
-      <h2 class="page-links__title"><a href="#">About Us</a></h2>
+      <h2 class="page-links__title"><a href="<?php echo get_permalink($theParent);?>"><?php echo get_the_title($theParent); ?></a></h2>
       <ul class="min-list">
-        <li class="current_page_item"><a href="#">Our History</a></li>
-        <li><a href="#">Our Goals</a></li>
+      <!-- if the code has a parent this parent to child function will be used -->
+      <?php 
+        if ($theParent) {
+          $findChildrenOf = $theParent;
+        } else {
+          $findChildrenOf = get_the_ID();
+        }
+      
+        wp_list_pages(array(
+        'title_li' => NULL, 
+        'child_of' => $findChildrenOf,
+        )); 
+      ?> 
+        <!-- use arguements to call the an associative array -->
       </ul>
     </div>
-    
+    <?php } ?>
+
+
         <div class="generic-content">
         <?php the_content(); ?>
     </div>
