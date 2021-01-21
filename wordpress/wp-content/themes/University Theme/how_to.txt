@@ -3,6 +3,7 @@
 
   <h1><?php bloginfo('name'); ?></h1>
   <p><?php bloginfo('description'); ?><p>
+  <body <?php body_class(); ?>> - allows you to style a particular page in a certain way
 
       more functions: 
                       the_title();
@@ -37,6 +38,28 @@
       1. To create a footer create the File: footer.php
     2. use: <?php get_footer(); ?>
     NOTE the get_footer function pulls in the content of footer.php   
+
+              -- Menu Locations --
+      1. Let's create a footer menu - define the theme function from functions.php 
+
+            function university_features() {
+              register_nav_menu('footerLocationOne', 'Footer Location 1');
+
+        2.  Call the menu location anywhere you desire   
+        
+              <?php 
+                wp_nav_menu(array(
+                'theme_location' => 'footerLocationOne'
+                )); ?> 
+    }
+
+          -- If statement for parent/child menus -- 
+
+          If the current page is the (about us) page or if the current page has
+           a parent of the (about us) page then echo this special class.
+
+        <li <?php if (is_page('about-us') or wp_get_post_parent_id(0) == 23) echo 'class="current-menu-item"' ?>><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
+
 
 
               -- Title's --
