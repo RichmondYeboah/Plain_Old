@@ -23,6 +23,7 @@
               <li><a href="#">Campuses</a></li>
               <li><a href="#">Blog</a></li>
             </ul>
+            <!-- This is a custom Menu  -->
           </nav>
           <div class="site-header__util">
             <a href="#" class="btn btn--small btn--orange float-left push-right">Login</a>
